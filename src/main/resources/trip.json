@@ -1,0 +1,418 @@
+{
+  "kind": "qpxExpress#tripsSearch",
+  "trips": {
+    "kind": "qpxexpress#tripOptions",
+    "requestId": "BZ4oHBGxK7aXF5Eqb0QG44",
+    "data": {
+      "kind": "qpxexpress#data",
+      "airport": [
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "DEN",
+          "city": "DEN",
+          "name": "Denver International"
+        },
+        {
+          "kind": "qpxexpress#airportData",
+          "code": "LAX",
+          "city": "LAX",
+          "name": "Los Angeles International"
+        }
+      ],
+      "city": [
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "DEN",
+          "name": "Denver"
+        },
+        {
+          "kind": "qpxexpress#cityData",
+          "code": "LAX",
+          "name": "Los Angeles"
+        }
+      ],
+      "aircraft": [
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "319",
+          "name": "Airbus A319"
+        },
+        {
+          "kind": "qpxexpress#aircraftData",
+          "code": "739",
+          "name": "Boeing 737"
+        }
+      ],
+      "tax": [
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "ZP",
+          "name": "US Flight Segment Tax"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "AY_001",
+          "name": "US September 11th Security Fee"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "US_001",
+          "name": "US Transportation Tax"
+        },
+        {
+          "kind": "qpxexpress#taxData",
+          "id": "XF",
+          "name": "US Passenger Facility Charge"
+        }
+      ],
+      "carrier": [
+        {
+          "kind": "qpxexpress#carrierData",
+          "code": "AS",
+          "name": "Alaska Airlines Inc."
+        },
+        {
+          "kind": "qpxexpress#carrierData",
+          "code": "NK",
+          "name": "Spirit Airlines"
+        },
+        {
+          "kind": "qpxexpress#carrierData",
+          "code": "UA",
+          "name": "United Airlines, Inc."
+        }
+      ]
+    },
+    "tripOption": [
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD62.20",
+        "id": "bmtd7KqOyr1TZt96eIcJYO001",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 155,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 155,
+                "flight": {
+                  "carrier": "NK",
+                  "number": "947"
+                },
+                "id": "GCiyu9uNDI0N5QUj",
+                "cabin": "COACH",
+                "bookingCode": "U",
+                "bookingCodeCount": 4,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "LwQNoMVQ8EPOQicO",
+                    "aircraft": "319",
+                    "arrivalTime": "2017-04-08T08:35-07:00",
+                    "departureTime": "2017-04-08T07:00-06:00",
+                    "origin": "DEN",
+                    "destination": "LAX",
+                    "destinationTerminal": "3",
+                    "duration": 155,
+                    "onTimePerformance": 50,
+                    "mileage": 860,
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AwcK/8m4Kxuc1v3EA06Ph4AJjur3TBB5cZO66dghD9GE",
+                "carrier": "NK",
+                "origin": "DEN",
+                "destination": "LAX",
+                "basisCode": "U3C1NR"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AwcK/8m4Kxuc1v3EA06Ph4AJjur3TBB5cZO66dghD9GE",
+                "segmentId": "GCiyu9uNDI0N5QUj"
+              }
+            ],
+            "baseFareTotal": "USD44.64",
+            "saleFareTotal": "USD44.64",
+            "saleTaxTotal": "USD17.56",
+            "saleTotal": "USD62.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD3.36"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "DEN NK LAX Q22.32 Q4.65 17.67U3C1NR USD 44.64 END ZP DEN XT 3.36US 4.10ZP 5.60AY 4.50XF DEN4.50",
+            "latestTicketingTime": "2017-03-29T22:44-04:00",
+            "ptc": "ADT"
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD152.20",
+        "id": "bmtd7KqOyr1TZt96eIcJYO002",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 152,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 152,
+                "flight": {
+                  "carrier": "UA",
+                  "number": "447"
+                },
+                "id": "Go86QR9f5NwM-PQd",
+                "cabin": "COACH",
+                "bookingCode": "T",
+                "bookingCodeCount": 9,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "L--keuufXZRicbeI",
+                    "aircraft": "739",
+                    "arrivalTime": "2017-04-08T09:32-07:00",
+                    "departureTime": "2017-04-08T08:00-06:00",
+                    "origin": "DEN",
+                    "destination": "LAX",
+                    "destinationTerminal": "7",
+                    "duration": 152,
+                    "onTimePerformance": 50,
+                    "mileage": 860,
+                    "meal": "Food and Beverages for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "ArvPeV7ePvBaYpwKERa0F+XAAXvQC6g+8qraOzt7J9Y/",
+                "carrier": "UA",
+                "origin": "DEN",
+                "destination": "LAX",
+                "basisCode": "TAA7ACEN"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "ArvPeV7ePvBaYpwKERa0F+XAAXvQC6g+8qraOzt7J9Y/",
+                "segmentId": "Go86QR9f5NwM-PQd"
+              }
+            ],
+            "baseFareTotal": "USD128.37",
+            "saleFareTotal": "USD128.37",
+            "saleTaxTotal": "USD23.83",
+            "saleTotal": "USD152.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD9.63"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "DEN UA LAX 128.37TAA7ACEN USD 128.37 END ZP DEN XT 9.63US 4.10ZP 5.60AY 4.50XF DEN4.50",
+            "latestTicketingTime": "2017-03-29T23:59-04:00",
+            "ptc": "ADT"
+          }
+        ]
+      },
+      {
+        "kind": "qpxexpress#tripOption",
+        "saleTotal": "USD207.20",
+        "id": "bmtd7KqOyr1TZt96eIcJYO003",
+        "slice": [
+          {
+            "kind": "qpxexpress#sliceInfo",
+            "duration": 162,
+            "segment": [
+              {
+                "kind": "qpxexpress#segmentInfo",
+                "duration": 162,
+                "flight": {
+                  "carrier": "AS",
+                  "number": "8209"
+                },
+                "id": "GTgc7GXm7zRFBBXK",
+                "cabin": "COACH",
+                "bookingCode": "B",
+                "bookingCodeCount": 7,
+                "marriedSegmentGroup": "0",
+                "leg": [
+                  {
+                    "kind": "qpxexpress#legInfo",
+                    "id": "Ly9+-7rj4imexzhn",
+                    "aircraft": "319",
+                    "arrivalTime": "2017-04-08T08:47-07:00",
+                    "departureTime": "2017-04-08T07:05-06:00",
+                    "origin": "DEN",
+                    "destination": "LAX",
+                    "destinationTerminal": "0",
+                    "duration": 162,
+                    "operatingDisclosure": "OPERATED BY AMERICAN AIRLINES",
+                    "mileage": 860,
+                    "meal": "Food for Purchase",
+                    "secure": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "pricing": [
+          {
+            "kind": "qpxexpress#pricingInfo",
+            "fare": [
+              {
+                "kind": "qpxexpress#fareInfo",
+                "id": "AUeeJJgj52lB2aiE5TmFFjJJjIt4IkzYtQ7PZ10k9IHs",
+                "carrier": "AS",
+                "origin": "DEN",
+                "destination": "LAX",
+                "basisCode": "B8AIZNN1"
+              }
+            ],
+            "segmentPricing": [
+              {
+                "kind": "qpxexpress#segmentPricing",
+                "fareId": "AUeeJJgj52lB2aiE5TmFFjJJjIt4IkzYtQ7PZ10k9IHs",
+                "segmentId": "GTgc7GXm7zRFBBXK"
+              }
+            ],
+            "baseFareTotal": "USD179.53",
+            "saleFareTotal": "USD179.53",
+            "saleTaxTotal": "USD27.67",
+            "saleTotal": "USD207.20",
+            "passengers": {
+              "kind": "qpxexpress#passengerCounts",
+              "adultCount": 1
+            },
+            "tax": [
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "US_001",
+                "chargeType": "GOVERNMENT",
+                "code": "US",
+                "country": "US",
+                "salePrice": "USD13.47"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "AY_001",
+                "chargeType": "GOVERNMENT",
+                "code": "AY",
+                "country": "US",
+                "salePrice": "USD5.60"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "XF",
+                "chargeType": "GOVERNMENT",
+                "code": "XF",
+                "country": "US",
+                "salePrice": "USD4.50"
+              },
+              {
+                "kind": "qpxexpress#taxInfo",
+                "id": "ZP",
+                "chargeType": "GOVERNMENT",
+                "code": "ZP",
+                "country": "US",
+                "salePrice": "USD4.10"
+              }
+            ],
+            "fareCalculation": "DEN AS LAX 179.53B8AIZNN1 USD 179.53 END ZP DEN XT 13.47US 4.10ZP 5.60AY 4.50XF DEN4.50",
+            "latestTicketingTime": "2017-03-29T23:59-04:00",
+            "ptc": "ADT"
+          }
+        ]
+      }
+    ]
+  }
+}

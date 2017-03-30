@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: the-captain
+  basic:
+    enabled: false
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/captain
+    username: root
+    password: root
+    maximum-pool-size: 5
+    test-while-idle: true
+    test-on-return: true
+    test-on-borrow: true
+    validation-query: select 1 as dbcp_connection_test
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+
+# QPX
+qpx:
+  url: https://www.googleapis.com/qpxExpress/v1/trips/search?key=
+  key: AIzaSyBcaur6ZLPbf76eN5rbiDhVKkXoMdVXK94

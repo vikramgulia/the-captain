@@ -1,0 +1,63 @@
+group 'com.captain.app'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+            'mysql:mysql-connector-java:5.1.35',
+            'javax.servlet:javax.servlet-api:3.1.0',
+            'org.webjars:bootstrap:3.3.6',
+            'org.webjars:jquery:2.1.4',
+            'org.webjars:angularjs:1.4.8',
+            'org.webjars.bower:fontawesome:4.6.3',
+            'org.webjars.bower:messenger:1.4.2',
+            'io.dropwizard.metrics:metrics-core:3.1.0',
+            'com.typesafe.akka:akka-actor_2.10:2.3.14',
+            'org.projectlombok:lombok:1.16.8',
+            'io.springfox:springfox-swagger-ui:2.4.0',
+            'io.springfox:springfox-swagger2:2.4.0'
+    )
+    compile 'org.thymeleaf:thymeleaf-spring4'
+    compile 'javax.inject:javax.inject:1'
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude group: "org.slf4j", module: "log4j-over-slf4j"
+        exclude group: "ch.qos.logback", module: "logback-classic"
+    }
+    compile("org.springframework.boot:spring-boot-starter-actuator") {
+        exclude group: "org.slf4j", module: "log4j-over-slf4j"
+        exclude group: "ch.qos.logback", module: "logback-classic"
+    }
+    compile('org.springframework.boot:spring-boot-starter-data-jpa') {
+        exclude group: "org.slf4j", module: "log4j-over-slf4j"
+        exclude group: "ch.qos.logback", module: "logback-classic"
+    }
+
+    /*
+     test compile
+      */
+    testCompile 'junit:junit:4.11'
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: "org.slf4j", module: "log4j-over-slf4j"
+        exclude group: "ch.qos.logback", module: "logback-classic"
+    }
+}
