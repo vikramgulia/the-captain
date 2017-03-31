@@ -1,11 +1,15 @@
-package com.captain.model.trip;
+package com.captain.model.trip.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
+import lombok.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class PermittedDepartureTime {
     private String kind;
     private String earliestTime;
@@ -18,30 +22,6 @@ public class PermittedDepartureTime {
     public PermittedDepartureTime(String kind, String earliestTime, String latestTime) {
         this.kind = kind;
         this.earliestTime = earliestTime;
-        this.latestTime = latestTime;
-    }
-
-    public String getKind() {
-        return kind;
-    }
-
-    public void setKind(String kind) {
-        this.kind = kind;
-    }
-
-    public String getEarliestTime() {
-        return earliestTime;
-    }
-
-    public void setEarliestTime(String earliestTime) {
-        this.earliestTime = earliestTime;
-    }
-
-    public String getLatestTime() {
-        return latestTime;
-    }
-
-    public void setLatestTime(String latestTime) {
         this.latestTime = latestTime;
     }
 }

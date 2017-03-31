@@ -22,4 +22,18 @@ spring:
 # QPX
 qpx:
   url: https://www.googleapis.com/qpxExpress/v1/trips/search?key=
-  key: AIzaSyBcaur6ZLPbf76eN5rbiDhVKkXoMdVXK94
+  key: ${qpx.key}
+sky:
+  urls:
+    browsequotes: http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/
+    browseroutes: http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/
+    browsedates: http://partners.api.skyscanner.net/apiservices/browsedates/v1.0/
+    browsegrid: http://partners.api.skyscanner.net/apiservices/browsegrid/v1.0/
+    references: http://partners.api.skyscanner.net/apiservices/reference/v1.0/
+  key: ${sky.key}
+management:
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: false

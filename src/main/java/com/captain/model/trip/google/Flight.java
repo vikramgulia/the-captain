@@ -1,11 +1,15 @@
-package com.captain.model.trip;
+package com.captain.model.trip.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
+import lombok.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Flight {
     private String carrier;
     private String number;
@@ -19,19 +23,4 @@ public class Flight {
         this.number = number;
     }
 
-    public String getCarrier() {
-        return carrier;
-    }
-
-    public void setCarrier(String carrier) {
-        this.carrier = carrier;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
 }

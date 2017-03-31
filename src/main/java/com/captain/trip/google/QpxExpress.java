@@ -1,12 +1,15 @@
-package com.captain.trip;
+package com.captain.trip.google;
 
-import com.captain.model.trip.Input;
-import com.captain.model.trip.Itinerary;
+import com.captain.model.trip.google.Input;
+import com.captain.model.trip.google.Itinerary;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.File;
+import java.nio.file.Files;
 
 @Service
 public class QpxExpress {
@@ -27,14 +30,15 @@ public class QpxExpress {
     }
 
     public Itinerary findTrips(Input input) throws Exception {
-        return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
+        //return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
+        System.out.println(qpxUrl + qpxKey);
 
-        /*return mapper.readValue(Files
+        return mapper.readValue(Files
                         .readAllLines(new File(ClassLoader.getSystemResource("trip.json").getPath()).toPath())
                         .parallelStream()
                         .reduce((s, s2) -> s + s2)
                         .get(),
-                Itinerary.class);*/
+                Itinerary.class);
     }
 
 }

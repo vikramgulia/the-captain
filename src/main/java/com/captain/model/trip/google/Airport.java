@@ -1,4 +1,4 @@
-package com.captain.model.trip;
+package com.captain.model.trip.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,16 +6,18 @@ import lombok.Builder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class City {
+public class Airport {
     private String code;
+    private String city;
     private String name;
 
-    public City() {
+    public Airport() {
     }
 
     @Builder
-    public City(String code, String name) {
+    public Airport(String code, String city, String name) {
         this.code = code;
+        this.city = city;
         this.name = name;
     }
 
@@ -25,6 +27,14 @@ public class City {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getName() {

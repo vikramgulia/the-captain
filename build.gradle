@@ -9,6 +9,9 @@ targetCompatibility = 1.8
 
 buildscript {
     repositories {
+        maven {
+            url 'https://artifactory.global.dish.com/artifactory/repo'
+        }
         mavenLocal()
         mavenCentral()
     }
@@ -18,6 +21,9 @@ buildscript {
 }
 
 repositories {
+    maven {
+        url 'https://artifactory.global.dish.com/artifactory/repo'
+    }
     mavenLocal()
     mavenCentral()
 }

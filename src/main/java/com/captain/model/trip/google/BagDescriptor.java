@@ -1,4 +1,4 @@
-package com.captain.model.trip;
+package com.captain.model.trip.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

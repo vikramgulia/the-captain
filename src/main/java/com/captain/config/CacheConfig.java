@@ -20,7 +20,9 @@ class CacheConfig {
         cacheManager.setCaches(Arrays.asList(
                 new ConcurrentMapCache("allAirports"),
                 new ConcurrentMapCache("airportsByCountry"),
-                new ConcurrentMapCache("airportsByIataCodes")));
+                new ConcurrentMapCache("airportsByIataCodes"),
+                new ConcurrentMapCache("skyLocales")
+        ));
 
         return cacheManager;
     }

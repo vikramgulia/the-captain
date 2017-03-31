@@ -1,11 +1,15 @@
-package com.captain.model.trip;
+package com.captain.model.trip.google;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
+import lombok.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Input {
     private Request request;
 
@@ -14,14 +18,6 @@ public class Input {
 
     @Builder
     public Input(Request request) {
-        this.request = request;
-    }
-
-    public Request getRequest() {
-        return request;
-    }
-
-    public void setRequest(Request request) {
         this.request = request;
     }
 }
