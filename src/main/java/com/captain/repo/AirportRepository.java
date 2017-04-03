@@ -1,6 +1,6 @@
 package com.captain.repo;
 
-import com.captain.model.Airport;
+import com.captain.model.dao.Airport;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;

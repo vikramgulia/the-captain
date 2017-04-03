@@ -37,3 +37,6 @@ management:
 endpoints:
   shutdown:
     enabled: false
+app:
+  user: user
+  pass: pass

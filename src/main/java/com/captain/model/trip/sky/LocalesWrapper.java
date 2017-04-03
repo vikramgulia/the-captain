@@ -1,8 +1,6 @@
 package com.captain.model.trip.sky;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -24,5 +22,15 @@ public class LocalesWrapper {
     @Builder
     public LocalesWrapper(List<Locales> Locales) {
         this.Locales = Locales;
+    }
+
+    @JsonGetter(value = "Locales")
+    public List<com.captain.model.trip.sky.Locales> getLocales() {
+        return Locales;
+    }
+
+    @JsonSetter(value = "Locales")
+    public void setLocales(List<com.captain.model.trip.sky.Locales> locales) {
+        Locales = locales;
     }
 }

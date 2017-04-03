@@ -1,6 +1,6 @@
 package com.captain.controller;
 
-import com.captain.model.Airport;
+import com.captain.model.dao.Airport;
 import com.captain.repo.AirportRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -49,7 +49,7 @@ public class Airports {
             value = "findAirports",
             httpMethod = "GET",
             responseContainer = "List",
-            response = com.captain.model.Airport.class,
+            response = Airport.class,
             produces = MediaType.APPLICATION_JSON_VALUE,
             notes = "findAirports")
     public ResponseEntity<List<Airport>> findAirports(@RequestParam(value = "id", required = false) Long id,
