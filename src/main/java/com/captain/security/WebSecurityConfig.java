@@ -1,6 +1,9 @@
 package com.captain.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -11,34 +14,34 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-   /* @Value("${app.user}")
+    @Value("${app.user}")
     String user;
 
-    @Value("${app.password}")
-    String password;*/
+    @Value("${app.pass}")
+    String password;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                /*.antMatchers("/css*//**").permitAll()
-         .antMatchers("/webjars*//**").permitAll()
-         .antMatchers("/emails*//**").permitAll()
-         .antMatchers("/files*//**").permitAll()*/
+                .antMatchers("/css *").permitAll()
+                .antMatchers("/webjars *").permitAll()
+                .antMatchers("/js *").permitAll()
+                .antMatchers("/images *").permitAll()
                 //.antMatchers("/", "/index").permitAll()
                 .anyRequest().permitAll();
-                /*
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();*/
+        //.anyRequest().authenticated()
+        //.and()
+        //.formLogin()
+        //.loginPage("/login")
+        //.permitAll()
+        //.and()
+        //.logout()
+        //.permitAll();
     }
 
-    /*@Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser(getUser()).password(getPassword()).roles("USER");
@@ -51,5 +54,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public String getPassword() {
         return password;
     }
-*/
 }

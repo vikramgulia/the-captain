@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="/css/flight-form.css" ng-show="isStillOnForm"/>
+<div class="container" ng-show="isStillOnForm" ng-init="selectizeInputs()">
+    <div class="starter-template">
+        <h1 class="cover-heading">Plan you next trip here...</h1>
+        <form class="form-inline">
+            <p class="lead">
+                <label class="sr-only" for="departFrom">Name</label>
+                <input ng-model="departFrom" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                       id="departFrom"
+                       placeholder="From.." list="airports"/>
+                <label class="sr-only" for="arriveAt">Name</label>
+                <input ng-model="arriveAt" type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                       id="arriveAt"
+                       placeholder="Where to..." list="airports"/>
+                <datalist id="airports">
+                    <option ng-repeat="airport in airports">{{airport.name}}</option>
+                </datalist>
+            </p>
+            <p class="lead">
+                <label class="sr-only" for="departOn">Name</label>
+                <input ng-model="departOn" type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="departOn">
+                <label class="sr-only" for="arriveOn">Name</label>
+                <input ng-model="arriveOn" type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="arriveOn">
+                <label for="passengers" class="sr-only">Passengers</label>
+                <input ng-model="passengers" class="form-control" type="number" value="1" id="passengers">
+            </p>
+            <p class="lead">
+                <input class="btn btn-lg btn-default" value="Find My Trip" ng-click="findFlights()"/>
+            </p>
+        </form>
+    </div>
+
+    <div class="mastfoot">
+        <div class="inner">
+            <p><a href="http://geekyjaat.github.io">Be a GEEK!!</a></p>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/css/flight-form.css" ng-show="isFlightLoading"/>
+<div class="container-fluid starter-template" align="center" ng-show="isFlightLoading">
+    <img class="icon"
+         src="/images/loading.gif"/>
+    <br><b>Please Wait</b>
+</div>
+
+<link rel="stylesheet" href="/css/flight-list.css" ng-show="isFlightSuccess"/>
+<div class="container-fluid" ng-show="isFlightSuccess">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item</a></li>
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+                <li><a href="">More navigation</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">{{departFrom}} - {{arriveAt}}</h1>
+            <h3><i>({{printDate(departOn, 0)}} - {{printDate(arriveOn, 0)}})</i></h3>
+
+            <!--<div class="row placeholders">
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                         width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+            </div>-->
+
+            <h2 class="sub-header">Your Options:
+                <button class="btn btn-primary pull-right"><i class="glyphicon glyphicon-refresh"></i></button>
+            </h2>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Airline</th>
+                        <th>Depart From</th>
+                        <th>Depart At</th>
+                        <th>Duration</th>
+                        <th>Arrive At</th>
+                        <th>Arrive To</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="trip in trips.tripOption">
+                        <td>{{trip.slice[0].segment[0].flight.carrier}}-{{trip.slice[0].segment[0].flight.number}}</td>
+                        <td>{{trip.slice[0].segment[0].leg[0].origin}}</td>
+                        <td>{{trip.slice[0].segment[0].leg[0].departureTime}}</td>
+                        <td>{{trip.slice[0].duration}}</td>
+                        <td>{{trip.slice[0].segment[0].leg[0].arrivalTime}}</td>
+                        <td>{{trip.slice[0].segment[0].leg[0].destination}}</td>
+                        <td>{{trip.saleTotal}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

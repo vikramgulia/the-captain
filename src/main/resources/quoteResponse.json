@@ -1,0 +1,110 @@
+{
+  "Quotes": [
+    {
+      "QuoteId": 1,
+      "MinPrice": 388,
+      "Direct": false,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1864
+        ],
+        "OriginId": 47118,
+        "DestinationId": 65368,
+        "DepartureDate": "2017-04-15T00:00:00"
+      },
+      "QuoteDateTime": "2017-04-11T03:52:00"
+    },
+    {
+      "QuoteId": 2,
+      "MinPrice": 388,
+      "Direct": false,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1864
+        ],
+        "OriginId": 47118,
+        "DestinationId": 65368,
+        "DepartureDate": "2017-04-15T00:00:00"
+      },
+      "QuoteDateTime": "2017-04-12T05:18:00"
+    },
+    {
+      "QuoteId": 3,
+      "MinPrice": 117,
+      "Direct": true,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1467
+        ],
+        "OriginId": 47118,
+        "DestinationId": 65368,
+        "DepartureDate": "2017-04-15T00:00:00"
+      },
+      "InboundLeg": {
+        "CarrierIds": [
+          1467
+        ],
+        "OriginId": 65368,
+        "DestinationId": 47118,
+        "DepartureDate": "2017-04-19T00:00:00"
+      },
+      "QuoteDateTime": "2017-04-07T06:48:00"
+    }
+  ],
+  "Places": [
+    {
+      "PlaceId": 47118,
+      "IataCode": "DEN",
+      "Name": "Denver International",
+      "Type": "Station",
+      "SkyscannerCode": "DEN",
+      "CityName": "Denver",
+      "CityId": "DENA",
+      "CountryName": "United States"
+    },
+    {
+      "PlaceId": 65368,
+      "IataCode": "LAX",
+      "Name": "Los Angeles International",
+      "Type": "Station",
+      "SkyscannerCode": "LAX",
+      "CityName": "Los Angeles",
+      "CityId": "LAXA",
+      "CountryName": "United States"
+    }
+  ],
+  "Carriers": [
+    {
+      "CarrierId": 1065,
+      "Name": "Frontier Airlines"
+    },
+    {
+      "CarrierId": 1467,
+      "Name": "Spirit Airlines"
+    },
+    {
+      "CarrierId": 1793,
+      "Name": "United"
+    },
+    {
+      "CarrierId": 1864,
+      "Name": "Virgin America"
+    },
+    {
+      "CarrierId": 1902,
+      "Name": "Southwest Airlines"
+    }
+  ],
+  "Currencies": [
+    {
+      "Code": "USD",
+      "Symbol": "$",
+      "ThousandsSeparator": ",",
+      "DecimalSeparator": ".",
+      "SymbolOnLeft": true,
+      "SpaceBetweenAmountAndSymbol": false,
+      "RoundingCoefficient": 0,
+      "DecimalDigits": 2
+    }
+  ]
+}

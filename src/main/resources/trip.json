@@ -3,7 +3,7 @@
   "trips": {
     "kind": "qpxexpress#tripOptions",
     "requestId": "BZ4oHBGxK7aXF5Eqb0QG44",
-    "data": {
+    "data":  {
       "kind": "qpxexpress#data",
       "airport": [
         {

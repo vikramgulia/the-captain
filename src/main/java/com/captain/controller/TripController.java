@@ -3,9 +3,9 @@ package com.captain.controller;
 import com.captain.model.trip.google.Input;
 import com.captain.model.trip.google.Itinerary;
 import com.captain.model.trip.sky.LocalesWrapper;
+import com.captain.repo.AirportRepository;
 import com.captain.trip.google.QpxExpress;
 import com.captain.trip.sky.SkyScanner;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
 
 @RestController
 @RequestMapping("/captain")
@@ -25,14 +26,18 @@ public class TripController {
 
     private QpxExpress qpxExpress;
     private SkyScanner skyScanner;
+    private AirportRepository airportRepository;
+
 
     @Autowired
     public TripController(
             QpxExpress qpxExpress,
-            SkyScanner skyScanner
+            SkyScanner skyScanner,
+            AirportRepository airportRepository
     ) {
         this.qpxExpress = qpxExpress;
         this.skyScanner = skyScanner;
+        this.airportRepository = airportRepository;
     }
 
     @RequestMapping(method = RequestMethod.POST,
@@ -41,11 +46,11 @@ public class TripController {
     )
     @ApiOperation(
             position = 0,
-            value = "showMyOptions",
+            value = "trip",
             httpMethod = "POST",
             response = Itinerary.class,
             produces = MediaType.APPLICATION_JSON_VALUE,
-            notes = "showMyOptions")
+            notes = "trip")
     public ResponseEntity<Itinerary> showMyOptions(@RequestBody Input input) throws Exception {
         return ResponseEntity.ok(qpxExpress.findTrips(input));
     }
@@ -61,7 +66,14 @@ public class TripController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             notes = "getLocales")
     public ResponseEntity<LocalesWrapper> getLocales() throws Exception {
-
         return ResponseEntity.ok(skyScanner.locales());
+    }
+
+    @RequestMapping(method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            value = "/sleep")
+    public ResponseEntity<String> sleep() throws Exception {
+        Thread.sleep(2000);
+        return ResponseEntity.ok("{ \"status\":\"SUCCESS\"}");
     }
 }

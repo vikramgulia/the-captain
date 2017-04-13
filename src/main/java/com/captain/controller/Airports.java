@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,27 +61,23 @@ public class Airports {
                                                       @RequestParam(value = "type", required = false) String type,
                                                       @RequestParam(value = "iata_code", required = false) String iataCode
     ) {
-        if (id == null
-                && country == null
-                && region == null
-                && continent == null
-                && search == null
-                && type == null
-                && iataCode == null)
-            return ResponseEntity.badRequest().body(Arrays.asList(new Airport()));
         if (id != null)
             return ResponseEntity.ok(Arrays.asList(airportRepository.findOne(id)));
             // filter for rest of criteria
         else {
-            return ResponseEntity.ok(airportRepository.findAll()
-                    .stream()
-                    .filter(airport -> filterValueMatchOrContains(airport.getIataCode(), iataCode, true))
-                    .filter(airport -> filterValueMatchOrContains(airport.getIsoCountry(), country, true))
-                    .filter(airport -> filterValueMatchOrContains(airport.getName(), search, false))
-                    .filter(airport -> filterValueMatchOrContains(airport.getIsoRegion(), region, false))
-                    .filter(airport -> filterValueMatchOrContains(airport.getContinent(), continent, false))
-                    .filter(airport -> filterValueMatchOrContains(airport.getType(), type, false))
-                    .collect(Collectors.toList()));
+            List<Airport> airports = airportRepository.findAll();
+            airports.sort(Comparator.comparing(e -> e.getName()));
+            return ResponseEntity.ok()
+                    .body(airports
+                            .stream()
+                            .filter(airport -> !airport.getIataCode().isEmpty())
+                            .filter(airport -> filterValueMatchOrContains(airport.getIataCode(), iataCode, true))
+                            .filter(airport -> filterValueMatchOrContains(airport.getIsoCountry(), country, true))
+                            .filter(airport -> filterValueMatchOrContains(airport.getName(), search, false))
+                            .filter(airport -> filterValueMatchOrContains(airport.getIsoRegion(), region, false))
+                            .filter(airport -> filterValueMatchOrContains(airport.getContinent(), continent, false))
+                            .filter(airport -> filterValueMatchOrContains(airport.getType(), type, false))
+                            .collect(Collectors.toList()));
         }
     }
 
