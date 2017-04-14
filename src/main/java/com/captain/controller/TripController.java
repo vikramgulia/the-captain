@@ -3,7 +3,6 @@ package com.captain.controller;
 import com.captain.model.trip.google.Input;
 import com.captain.model.trip.google.Itinerary;
 import com.captain.model.trip.sky.LocalesWrapper;
-import com.captain.repo.AirportRepository;
 import com.captain.trip.google.QpxExpress;
 import com.captain.trip.sky.SkyScanner;
 import io.swagger.annotations.Api;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestClientException;
 
 @RestController
 @RequestMapping("/captain")
@@ -26,18 +24,15 @@ public class TripController {
 
     private QpxExpress qpxExpress;
     private SkyScanner skyScanner;
-    private AirportRepository airportRepository;
 
 
     @Autowired
     public TripController(
             QpxExpress qpxExpress,
-            SkyScanner skyScanner,
-            AirportRepository airportRepository
+            SkyScanner skyScanner
     ) {
         this.qpxExpress = qpxExpress;
         this.skyScanner = skyScanner;
-        this.airportRepository = airportRepository;
     }
 
     @RequestMapping(method = RequestMethod.POST,

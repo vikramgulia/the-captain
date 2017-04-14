@@ -1,10 +1,9 @@
 package com.captain.controller;
 
 import com.captain.model.dao.Airport;
-import com.captain.repo.AirportRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,11 +27,21 @@ import java.util.stream.Collectors;
         tags = "airports")
 public class Airports {
 
-    private AirportRepository airportRepository;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    @Autowired
-    public Airports(AirportRepository airportRepository) {
-        this.airportRepository = airportRepository;
+    private static final Map<Long, Airport> AIRPORTS = new HashMap<>();
+
+    public Airports() throws IOException {
+        List<Airport> airports =
+                OBJECT_MAPPER.
+                        readValue(Files.readAllLines(new File(ClassLoader.getSystemResource("airports.json").getPath())
+                                        .toPath())
+                                        .parallelStream()
+                                        .reduce((s, s2) -> s + s2)
+                                        .get(),
+                                OBJECT_MAPPER.getTypeFactory().constructCollectionType(
+                                        List.class, Airport.class));
+        airports.parallelStream().forEach(airport -> AIRPORTS.put(airport.getId(), airport));
     }
 
     /**
@@ -60,16 +73,16 @@ public class Airports {
                                                       @RequestParam(value = "search", required = false) String search,
                                                       @RequestParam(value = "type", required = false) String type,
                                                       @RequestParam(value = "iata_code", required = false) String iataCode
-    ) {
+    ) throws IOException {
         if (id != null)
-            return ResponseEntity.ok(Arrays.asList(airportRepository.findOne(id)));
+            return ResponseEntity.ok(Arrays.asList(AIRPORTS.get(id)));
             // filter for rest of criteria
         else {
-            List<Airport> airports = airportRepository.findAll();
-            airports.sort(Comparator.comparing(e -> e.getName()));
+
             return ResponseEntity.ok()
-                    .body(airports
-                            .stream()
+                    .body(AIRPORTS.entrySet()
+                            .parallelStream()
+                            .map(entry -> entry.getValue())
                             .filter(airport -> !airport.getIataCode().isEmpty())
                             .filter(airport -> filterValueMatchOrContains(airport.getIataCode(), iataCode, true))
                             .filter(airport -> filterValueMatchOrContains(airport.getIsoCountry(), country, true))

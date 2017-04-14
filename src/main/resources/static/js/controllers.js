@@ -54,6 +54,10 @@
                 }
             };
 
+            $scope.refreshFlights = function () {
+                $scope.findFlights();
+            };
+
 
             /*
              find the flights
@@ -90,6 +94,7 @@
                         "solutions": 50
                     }
                 };
+
 
                 Trips.showMyOptions({action: 'trip'}, request, function (data) {
                     $scope.isFlightSuccess = true;

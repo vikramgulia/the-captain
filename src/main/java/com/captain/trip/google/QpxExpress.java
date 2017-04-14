@@ -6,8 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.File;
+import java.nio.file.Files;
 
 @Service
 public class QpxExpress {
@@ -28,16 +30,15 @@ public class QpxExpress {
     }
 
     public Itinerary findTrips(Input input) throws Exception {
-        System.out.println(input);
-        System.out.println(qpxUrl + qpxKey);
-        return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
+        //return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
 
-        /*return mapper.readValue(Files
+        return mapper.readValue(Files
                         .readAllLines(new File(ClassLoader.getSystemResource("trip.json").getPath()).toPath())
                         .parallelStream()
                         .reduce((s, s2) -> s + s2)
                         .get(),
-                Itinerary.class);*/
+                Itinerary.class);
+
     }
 
 }

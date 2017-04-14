@@ -1,0 +1,152 @@
+{
+  "totalPrice": "",
+  "pricePerFlight": "",
+  "passengers": [
+    {
+      "adults": 1,
+      "children": 2
+    }
+  ],
+  "outbound": {
+    "price": "",
+    "totalFlighTime": "",
+    "departs": "",
+    "arriveAt": "",
+    "fromCity": "",
+    "fromAirport": "",
+    "fromTimeZone": "",
+    "toCity": "",
+    "toAirport": "",
+    "toTimeZone": "",
+    "legs": [
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      },
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      },
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      }
+    ],
+    "passengers": [
+      {
+        "adults": 1,
+        "children": 2
+      }
+    ]
+  },
+  "return": {
+    "price": "",
+    "totalFlighTime": "",
+    "departs": "",
+    "arriveAt": "",
+    "fromCity": "",
+    "fromAirport": "",
+    "fromTimeZone": "",
+    "toCity": "",
+    "toAirport": "",
+    "toTimeZone": "",
+    "legs": [
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      },
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      },
+      {
+        "order": "",
+        "airline": "",
+        "planeCode": "",
+        "legTime": "",
+        "fromTimeZone": "",
+        "fromCity": "",
+        "fromTime": "",
+        "fromDay": "",
+        "fromAirport": "",
+        "toTimeZone": "",
+        "toCity": "",
+        "toTime": "",
+        "toDay": "",
+        "toAirport": "",
+        "cabinClass": ""
+      }
+    ],
+    "passengers": [
+      {
+        "adults": 1,
+        "children": 2
+      }
+    ]
+  }
+}

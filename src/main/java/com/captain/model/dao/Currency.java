@@ -6,20 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity(name = "currency")
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Currency {
-    @Id
-    @GeneratedValue
     private Long id;
-
     @JsonProperty(value = "Code")
     private String code;
     @JsonProperty(value = "Symbol")
@@ -27,22 +18,16 @@ public class Currency {
     @JsonProperty(value = "Country")
     private String country;
     @JsonProperty(value = "ThousandsSeparator")
-    @Column(name = "thousands_separator")
     private String thousandsSeparator;
     @JsonProperty(value = "DecimalSeparator")
-    @Column(name = "decimal_separator")
     private String decimalSeparator;
     @JsonProperty(value = "SymbolOnLeft")
-    @Column(name = "symbol_on_left")
     private String symbolOnLeft;
     @JsonProperty(value = "SpaceBetweenAmountAndSymbol")
-    @Column(name = "space_between_amount_and_symbol")
     private String spaceBetweenAmountAndSymbol;
     @JsonProperty(value = "RoundingCoefficient")
-    @Column(name = "rounding_coefficient")
     private String roundingCoefficient;
     @JsonProperty(value = "DecimalDigits")
-    @Column(name = "decimal_digits")
     private String decimalDigits;
 
     public Currency() {
