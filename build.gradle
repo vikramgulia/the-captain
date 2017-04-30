@@ -7,6 +7,11 @@ apply plugin: 'spring-boot'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+    baseName = 'the-captain'
+    version = ''
+}
+
 buildscript {
     repositories {
         mavenLocal()

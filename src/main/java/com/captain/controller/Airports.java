@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -34,11 +34,8 @@ public class Airports {
     public Airports() throws IOException {
         List<Airport> airports =
                 OBJECT_MAPPER.
-                        readValue(Files.readAllLines(new File(ClassLoader.getSystemResource("airports.json").getPath())
-                                        .toPath())
-                                        .parallelStream()
-                                        .reduce((s, s2) -> s + s2)
-                                        .get(),
+                        readValue(
+                                this.getClass().getClassLoader().getResourceAsStream("airports.json"),
                                 OBJECT_MAPPER.getTypeFactory().constructCollectionType(
                                         List.class, Airport.class));
         airports.parallelStream().forEach(airport -> AIRPORTS.put(airport.getId(), airport));
