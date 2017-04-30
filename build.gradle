@@ -30,8 +30,8 @@ dependencies {
             'org.webjars:angularjs:1.4.8',
             'org.webjars.bower:fontawesome:4.6.3',
             'org.webjars.bower:messenger:1.4.2',
-            'io.dropwizard.metrics:metrics-core:3.1.0',
-            'com.typesafe.akka:akka-actor_2.10:2.3.14',
+            //'io.dropwizard.metrics:metrics-core:3.1.0',
+            //'com.typesafe.akka:akka-actor_2.10:2.3.14',
             'org.projectlombok:lombok:1.16.8',
             'io.springfox:springfox-swagger-ui:2.4.0',
             'io.springfox:springfox-swagger2:2.4.0'

@@ -81,7 +81,7 @@
                                 "duration": 0,
                                 "origin": $scope.departFrom,
                                 "destination": $scope.arriveAt,
-                                "date": $scope.printDate($scope.departOn),
+                                "date": $scope.printDate($scope.departOn, 1),
                                 "maxStops": 2,
                                 "maxConnectionDuration": 0,
                                 "permittedDepartureTime": {

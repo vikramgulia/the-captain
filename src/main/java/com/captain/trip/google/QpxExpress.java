@@ -30,14 +30,14 @@ public class QpxExpress {
     }
 
     public Itinerary findTrips(Input input) throws Exception {
-        //return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
+        return restTemplate.postForObject(qpxUrl + qpxKey, input, Itinerary.class);
 
-        return mapper.readValue(Files
+        /*return mapper.readValue(Files
                         .readAllLines(new File(ClassLoader.getSystemResource("trip.json").getPath()).toPath())
                         .parallelStream()
                         .reduce((s, s2) -> s + s2)
                         .get(),
-                Itinerary.class);
+                Itinerary.class);*/
 
     }
 
