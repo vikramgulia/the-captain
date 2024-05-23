@@ -68,40 +68,22 @@
                 console.log($scope.isFlightLoading);
 
                 var request = {
-                    "request": {
-                        "passengers": {
-                            "adultCount": $scope.passengers,
-                            "childCount": 0,
-                            "infantInLapCount": 0,
-                            "infantInSeatCount": 0,
-                            "seniorCount": 0
-                        },
-                        "slice": [
-                            {
-                                "duration": 0,
-                                "origin": $scope.departFrom,
-                                "destination": $scope.arriveAt,
-                                "date": $scope.printDate($scope.departOn, 1),
-                                "maxStops": 2,
-                                "maxConnectionDuration": 0,
-                                "permittedDepartureTime": {
-                                    "earliestTime": "06:00",
-                                    "latestTime": "08:00"
-                                }
-                            }
-                        ],
-                        "refundable": false,
-                        "solutions": 50
-                    }
+                    "from": $scope.departFrom,
+                    "to": $scope.arriveAt,
+                    "fromDate": $scope.printDate($scope.departOn, 1),
+                    "toDate": $scope.printDate($scope.arriveOn, 1),
+                    "adults": $scope.passengers,
+                    "child": "0",
+                    "tripType": "ONE_WAY",
+                    "ticketClass": "ECONOMY"
                 };
-
 
                 Trips.showMyOptions({action: 'trip'}, request, function (data) {
                     $scope.isFlightSuccess = true;
                     $scope.isFlightLoading = false;
                     console.log($scope.isFlightLoading);
                     console.log(data);
-                    $scope.trips = data.trips;
+                    $scope.trips = data;
                 }, function (response) {
                     $scope.isFlightSuccess = true;
                     $scope.isFlightLoading = false;

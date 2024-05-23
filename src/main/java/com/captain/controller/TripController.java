@@ -1,6 +1,7 @@
 package com.captain.controller;
 
-import com.captain.model.trip.google.Input;
+import com.captain.model.trip.TripRequest;
+import com.captain.model.trip.TripSlice;
 import com.captain.model.trip.google.Itinerary;
 import com.captain.model.trip.sky.LocalesWrapper;
 import com.captain.trip.google.QpxExpress;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/captain")
 @Api(value = "captain",
@@ -24,7 +27,6 @@ public class TripController {
 
     private QpxExpress qpxExpress;
     private SkyScanner skyScanner;
-
 
     @Autowired
     public TripController(
@@ -46,8 +48,10 @@ public class TripController {
             response = Itinerary.class,
             produces = MediaType.APPLICATION_JSON_VALUE,
             notes = "trip")
-    public ResponseEntity<Itinerary> showMyOptions(@RequestBody Input input) throws Exception {
-        return ResponseEntity.ok(qpxExpress.findTrips(input));
+    public ResponseEntity<List<TripSlice>> showMyOptions(@RequestBody TripRequest tripRequest) throws Exception {
+        System.out.println(tripRequest);
+
+        return ResponseEntity.ok(qpxExpress.trips(tripRequest));
     }
 
     @RequestMapping(method = RequestMethod.GET,

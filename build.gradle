@@ -34,19 +34,24 @@ dependencies {
             'org.webjars:jquery:2.1.4',
             'org.webjars:angularjs:1.4.8',
             'org.webjars.bower:fontawesome:4.6.3',
-            'org.webjars.bower:messenger:1.4.2',
-            //'io.dropwizard.metrics:metrics-core:3.1.0',
+            //'org.webjars.bower:messenger:1.4.2',
+            'io.dropwizard.metrics:metrics-core:3.1.0',
             //'com.typesafe.akka:akka-actor_2.10:2.3.14',
             'org.projectlombok:lombok:1.16.8',
             'io.springfox:springfox-swagger-ui:2.4.0',
             'io.springfox:springfox-swagger2:2.4.0'
     )
+    compile group: 'com.yahoofinance-api', name: 'YahooFinanceAPI', version: '3.6.1'
     compile 'org.thymeleaf:thymeleaf-spring4'
     compile 'javax.inject:javax.inject:1'
     compile('org.springframework.boot:spring-boot-starter-web') {
         exclude group: "org.slf4j", module: "log4j-over-slf4j"
         exclude group: "ch.qos.logback", module: "logback-classic"
     }
+    /*compile("org.springframework.boot:spring-boot-starter-data-mongodb") {
+        exclude group: "org.slf4j", module: "log4j-over-slf4j"
+        exclude group: "ch.qos.logback", module: "logback-classic"
+    }*/
     compile("org.springframework.boot:spring-boot-starter-actuator") {
         exclude group: "org.slf4j", module: "log4j-over-slf4j"
         exclude group: "ch.qos.logback", module: "logback-classic"

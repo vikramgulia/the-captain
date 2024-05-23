@@ -73,7 +73,7 @@ public class SkyScanner {
         {inboundPartialDate}?
         apiKey={apiKey}"
         */
-        /*return restTemplate.getForObject(String
+        return restTemplate.getForObject(String
                         .format(
                                 browsequotes + "/%s/%s/%s/%s/%s/%s/%s?apiKey=%s",
                                 country,
@@ -85,18 +85,17 @@ public class SkyScanner {
                                 inboundPartialDate,
                                 skyKey
                         ),
-                QuoteResponse.class);*/
+                QuoteResponse.class);
 
-        return OBJECT_MAPPER.
+        /*return OBJECT_MAPPER.
                 readValue(Files
                                 .readAllLines(new File(ClassLoader.getSystemResource("quoteResponse.json").getPath()).toPath())
                                 .parallelStream()
                                 .reduce((s, s2) -> s + s2)
                                 .get(),
-                        QuoteResponse.class);
+                        QuoteResponse.class);*/
     }
 
-    //@Cacheable("skyLocales")
     public LocalesWrapper locales() {
         return restTemplate.getForObject(references + "locales?apiKey=" + skyKey, LocalesWrapper.class);
     }

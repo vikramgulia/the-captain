@@ -10,7 +10,8 @@
                  *  showMyOptions
                  */
                 showMyOptions: {
-                    method: "POST"
+                    method: "POST",
+                    isArray: true
                 },
                 /**
                  * Get airports

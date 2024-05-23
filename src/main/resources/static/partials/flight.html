@@ -99,7 +99,8 @@
             </div>-->
 
             <h2 class="sub-header">Your Options:
-                <button class="btn btn-primary pull-right" ng-click="refreshFlights()"><i class="glyphicon glyphicon-refresh"></i></button>
+                <button class="btn btn-primary pull-right" ng-click="refreshFlights()"><i
+                        class="glyphicon glyphicon-refresh"></i></button>
             </h2>
 
             <div class="table-responsive">
@@ -116,14 +117,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="trip in trips.tripOption">
-                        <td>{{trip.slice[0].segment[0].flight.carrier}}-{{trip.slice[0].segment[0].flight.number}}</td>
-                        <td>{{trip.slice[0].segment[0].leg[0].origin}}</td>
-                        <td>{{trip.slice[0].segment[0].leg[0].departureTime}}</td>
-                        <td>{{trip.slice[0].duration}}</td>
-                        <td>{{trip.slice[0].segment[0].leg[0].arrivalTime}}</td>
-                        <td>{{trip.slice[0].segment[0].leg[0].destination}}</td>
-                        <td>{{trip.saleTotal}}</td>
+                    <tr ng-repeat="trip in trips">
+                        <td>{{trip.airline}}</td>
+                        <td>{{trip.departFrom}}</td>
+                        <td>{{trip.departAt}}</td>
+                        <td>{{trip.duration}}</td>
+                        <td>{{trip.arriveAt}}</td>
+                        <td>{{trip.arriveTo}}</td>
+                        <td>{{trip.price}}</td>
                     </tr>
                     </tbody>
                 </table>
